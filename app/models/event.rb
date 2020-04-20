@@ -1,0 +1,9 @@
+class Event < ApplicationRecord
+
+  belongs_to :organization
+  belongs_to :user
+  has_many :user_on_events, dependent: :destroy
+  has_many :users, through: :user_on_events
+  has_many :date_votes, dependent: :destroy
+  has_many :comments, dependent: :destroy
+end

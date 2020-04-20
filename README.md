@@ -25,7 +25,7 @@ $ RAILS_ENV=development rake db:setup
 $ rake db:model_queries
 ```
 ---
->Explanations
+### Explanations
 - If an event is deleted, then the commments, replies to the comments and DateVotes are deleted because there were part of that event.
 - If an organization is deleted, all the events from the organization are deleted as well, because without an organization behind an event the event can not be made. In addition as the event is deleted all its components are deleted as well. (All of this is base on the premise that the organization either pays, rents and manages the event)
  - If a user is deleted only his information and interactions are deleted, like comments, replies, votes, etc. But if he is admin of an organization, and there is no more admins of that organization, then an admin will be selected randomly. In the case of being a System Admin, the Admin privilages will be deleted from the system too.

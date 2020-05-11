@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Event Info:</h2>
+<p>Name: <%= @event.name  %>
+  <br>Description: <%= @event.description %>
+  <br>Address: <%= @event.location %>
+  <br>Creation date: <%= @event.creation_date %>
+  <br>Date: <%= @event.starting_event_date %>
+  <br>Privacy:
+  <%if  @event.event_privacy == 1%>
+    <%="Private"%>
+  <%else%>
+    <%="Public"%>
+  <%end%>
+</p>
+
+<h3>Comments:</h3>
+<p><% @event.comments.each do |comment| %>
+    <tr>
+      <p>
+        <%= comment.user.username %>:
+        <%= comment.message %>
+      </p>
+    </tr>
+  <% end %>
+
+</p>
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>

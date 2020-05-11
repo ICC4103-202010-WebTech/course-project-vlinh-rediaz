@@ -6,4 +6,5 @@ class Event < ApplicationRecord
   has_many :users, through: :user_on_events
   has_many :date_votes, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :comment_replies, through: :comments
 end

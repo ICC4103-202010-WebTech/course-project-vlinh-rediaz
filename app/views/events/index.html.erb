@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Events</h1>
+
+
+<% @events.each do |event| %>
+
+  <ul class="flex-container">
+    <li class="flex-item">
+      <aside><img class="flex-image" src="https://partyflock.nl/ov/images/organization/11428_2048x2048_486817/RV-Events.png"></aside>
+      Name: <%= link_to  event.name, event %><br>
+      Description: <%= event.description %><br>
+      Address: <%= event.location %><br>
+      Date: <%= event.starting_event_date %>
+    </li>
+  </ul>
+<% end %>
+
+<br>

@@ -37,3 +37,6 @@ $ Event.first.destroy
 $ Organization.first.destroy
 $ User.first.destroy
 ```
+
+# Postman
+- https://www.getpostman.com/collections/e5894b84972b6f0d6b3f

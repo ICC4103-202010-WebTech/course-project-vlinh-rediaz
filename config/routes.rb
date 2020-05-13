@@ -27,8 +27,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :comments, defaults: {format: :html}
-  resources :comment_replies, defaults: {format: :html}
+  resources :comments, defaults: {format: :html} do
+    resources :comment_replies, defaults: {format: :html}
+  end
   resources :date_votes, defaults: {format: :html}
   resources :events, defaults: {format: :html}
   resources :organizations, defaults: {format: :html}

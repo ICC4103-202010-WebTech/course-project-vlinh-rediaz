@@ -45,10 +45,20 @@
     <p>
       <%= comment.user.username %>:
       <%= comment.message %>
-    </p>
-    </tr>
-  <% end %>
+      <% @event.comment_replies.each do |reply| %>
+        <tr>
+        <p>
+          <% if reply.comment.id == comment.id %>
+            ->   <%=reply.user.username %>:
+            <%= reply.message %>
+          <% end %>
 
+        </p>
+        </tr>
+      <% end %>
+      </p>
+      </tr>
+  <% end %>
   </p>
 
 

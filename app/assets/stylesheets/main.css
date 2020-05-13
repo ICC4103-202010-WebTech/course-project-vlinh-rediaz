@@ -1,4 +1,9 @@
-
+/*
+*= require_tree .
+*= require_self
+   */
+@import "bootstrap";
+@import "tether.css";
 html, body {
     height: 100%;
     width: 100%;
@@ -128,6 +133,16 @@ td, th {
     padding-left: 10px;
     height: 100px;
     width: 100px;
+}
+.flex-image2{
+    padding-top: 10px;
+    padding-left: 10px;
+    height: 200px;
+}
+.flex-image3 {
+    padding-top: 10px;
+    padding-left: 10px;
+    height: 400px
 }
 img {
     height: 100px;

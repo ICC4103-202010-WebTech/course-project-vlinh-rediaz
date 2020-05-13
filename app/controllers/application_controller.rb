@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
   private
 
   def set_user
-    @user = User.first
+    @user = User
   end
 end

@@ -1,6 +1,10 @@
-<h1>Editing Comment</h1>
-
-<%= render 'form', comment: @comment %>
-
+<div class="row ml-0 mt-3">
+  <h2>Edit Comment</h2>
+</div>
+<%= render partial: "form",
+           locals: {
+               comment: @comment,
+               submit_btn_text: "Update"
+           } %>
 <%= link_to 'Show', @comment %> |
 <%= link_to 'Back', comments_path %>

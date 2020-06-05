@@ -4,6 +4,7 @@
    */
 @import "bootstrap";
 @import "tether.css";
+
 html, body {
     height: 100%;
     width: 100%;
@@ -18,12 +19,12 @@ body {
 }
 
 a {
-    color: #ff5a19;
+    color: #2196f3;
     text-decoration: none;
 }
 
 a:hover {
-    color: #ff2121;
+    color: #255784;
 }
 
 header {
@@ -114,7 +115,8 @@ td, th {
     margin: 0;
     list-style: none;
 }
-.flex-item{
+
+.flex-item {
     display: inline;
     background: #943B6D;
     padding-left: 30px;
@@ -127,7 +129,8 @@ td, th {
     font-size: 2em;
     text-align: left;
 }
-.flex-item-user{
+
+.flex-item-user {
     display: inline;
     background: #943B6D;
     padding-left: 30px;
@@ -141,37 +144,73 @@ td, th {
     text-align: left;
 }
 
-.flex-image-S{
+.flex-image-S {
     padding-top: 10px;
     padding-left: 10px;
     height: 100px;
     width: 100px;
 }
-.flex-image-L{
+
+.flex-image-L {
     padding-top: 10px;
     padding-left: 10px;
     height: 200px;
 }
+
 .flex-image-XL {
     padding-top: 10px;
     padding-left: 10px;
     height: 400px
 }
-.flex-image-XS{
+
+.flex-image-XS {
     height: 35px;
     padding-top: 0px;
     width: 35px;
     vertical-align: middle;
 }
-.flex-image-XXS{
+
+.flex-image-XXS {
     height: 10px;
     padding-top: 0px;
     width: 10px;
     vertical-align: middle;
 }
+
 img {
     height: 100px;
 }
-li{
+
+li {
     display: inline;
+}
+
+neon-button {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #031321;
+    font-family: consolas;
+}
+
+aa {
+    position: relative;
+    display: inline-block;
+    padding: 15px 30px;
+    color: #2196f3;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-decoration: none;
+    font-size: 20px;
+    overflow: hidden;
+    transition: 0.2s;
+}
+aa:hover{
+    color: #255784;
+    background: #2196f3;
+    box-shadow: 0 0  10px #2196f3, 0 0 40px #2196f3, 0  0  80px #2196f3;
+    transition-delay: 0.5s;
 }

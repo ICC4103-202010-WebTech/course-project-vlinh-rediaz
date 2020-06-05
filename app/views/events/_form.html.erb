@@ -32,8 +32,9 @@
       <%= form.datetime_local_field :starting_event_date %>
     </div>
     <div class="form-group">
-      <%= form.label :event_privacy %>
-      <%= form.text_area :event_privacy, class: "form-control" %>
+      <%= form.label :event_privacy %>:<br>
+      1 for Private, 0 for Public<br>
+      <%= form.text_field :event_privacy, class: "form-control" %>
     </div>
     <div class="form-group">
       <%= form.label :organization %>

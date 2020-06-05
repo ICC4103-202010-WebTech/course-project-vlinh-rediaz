@@ -2,10 +2,9 @@
 
 <h1>Profile</h1>
 <% if @user.flyer.attached? %>
-  <%= image_tag(@user.flyer, class: "flex-image2", data: {target: "#myModal", toggle: "modal"}) %>
+  <%= image_tag(@user.flyer, class: "flex-image-L", data: {target: "#myModal", toggle: "modal"}) %>
 <% else %>
-  <img class="flex-image2" src="https://www.madrimasd.org/blogs/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png">
-<% end %>
+  <%=image_tag("profile_pic.png", class: "flex-image-L")%><% end %>
 <h2>User Info:</h2>
 <p>Username: <%= @user.username %>
   <br>Full Name: <%= @user.full_name %>
@@ -13,9 +12,8 @@
   <br>Email: <%= @user.email %>
 </p>
 
-
 <h5> Your invitations:</h5>
-<% @useronevent.each do |user| %>
+<% @user_on_event.each do |user| %>
   <% if user.user_id == @user.id %>
     <% @event.each do |event| %>
       <% if user.event_id == event.id %>

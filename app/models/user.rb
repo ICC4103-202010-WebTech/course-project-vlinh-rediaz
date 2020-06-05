@@ -20,4 +20,12 @@ class User < ApplicationRecord
   has_many :user_on_events, dependent: :destroy
   has_many :organizations, through: :user_on_organizations
   has_many :events, through: :user_on_events
+
+  def self.search(search)
+    if search
+      user_search = User.where("username LIKE ? OR full_name LIKE ? OR email LIKE ?" , "%#{search}%", "%#{search}%", "%#{search}%")
+    else
+      user_search = User.all
+    end
+  end
 end

@@ -6,9 +6,9 @@
     Date: <%= event.starting_event_date %>
     <aside style="float: right; padding-right: 20px">
       <% if event.flyer.attached? %>
-        <%= link_to image_tag(event.flyer, class: "flex-image2"), event %>
+        <%= link_to image_tag(event.flyer, class: "flex-image-L"), event %>
       <% else %>
-        <%= link_to image_tag("thumbnail.svg", class: "flex-image2"), event%>
+        <%= link_to image_tag("thumbnail.svg", class: "flex-image-L"), event%>
       <% end %>
     </aside>
   </li>

@@ -5,13 +5,14 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    @user_search = User.search(params[:search])
     @current_user = current_user
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
-    @useronevent = UserOnEvent.all
+    @user_on_event = UserOnEvent.all
     @event = Event.all
     @current_user = current_user
   end
@@ -81,6 +82,6 @@ class UsersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def user_params
-    params.fetch(:user, {}).permit(:username, :full_name, :email, :age, :flyer)
+    params.fetch(:user, {}).permit(:username, :full_name, :email, :age, :flyer, :search)
   end
 end

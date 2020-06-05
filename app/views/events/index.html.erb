@@ -2,6 +2,11 @@
 
 <h1>Events</h1>
 
+<%= form_tag events_path, :method => "get" do %>
+  <%=text_field_tag :search, params[:search] %>
+  <%=submit_tag("Search", :name => nil) %>
+<%end %>
+
 <div class="row ml-0 mt-2 mb-3">
   <%= link_to "Add Event", new_event_path, class: ["btn", "btn-primary"] %>
 </div>

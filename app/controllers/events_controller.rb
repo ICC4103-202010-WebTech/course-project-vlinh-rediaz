@@ -4,14 +4,15 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = Event.search(params[:search])
     @current_user = current_user
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
-    @useronevent = UserOnEvent.all
+    @user_on_event = UserOnEvent.all
+    @organization = Organization.all
     @current_user = current_user
     @comments = Comment.all
     @user = User.all

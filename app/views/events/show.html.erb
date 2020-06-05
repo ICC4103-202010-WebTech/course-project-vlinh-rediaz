@@ -2,9 +2,9 @@
 
 <aside style="float: right; padding-right: 20px">
   <% if @event.flyer.attached? %>
-    <%= image_tag(@event.flyer, class: "flex-image3", data: {target: "#myModal", toggle: "modal"}) %>
+    <%= image_tag(@event.flyer, class: "flex-image-XL", data: {target: "#myModal", toggle: "modal"}) %>
   <% else %>
-    <%= image_tag("thumbnail.svg", class: "flex-image3") %>
+    <%= image_tag("thumbnail.svg", class: "flex-image-XL") %>
   <% end %>
 </aside>
 
@@ -14,6 +14,20 @@
   <br>Address: <%= @event.location %>
   <br>Creation date: <%= @event.creation_date %>
   <br>Date: <%= @event.starting_event_date %>
+  <br>Created by:
+  <% @user.each do |user| %>
+    <% if @event.user_id == user.id %>
+      <%= link_to user.full_name, user %>
+      <% break %>
+    <% end %>
+  <% end %>
+  <br>Organization:
+  <% @organization.each do |organization| %>
+    <% if @event.organization_id == organization.id %>
+      <%= link_to organization.name, organization %><br>
+      <% break %>
+    <% end %>
+  <% end %>
   <br>Privacy:
   <% if @event.event_privacy == 1 %>
     <%= "Private" %>
@@ -24,7 +38,7 @@
 
 <p>
 <h4>Guest List:</h4>
-<% @useronevent.each do |event| %>
+<% @user_on_event.each do |event| %>
   <% if event.event_id == @event.id %>
     <% @user.each do |user| %>
       <% if user.id == event.user_id %>
@@ -61,23 +75,20 @@
   <p><%= link_to '- New Comment -', new_comment_path(@comment) %> </p>
   <br>
 
-  <% if @event.files.attached? %>
-    <% @event.files.each do |file| %>
-      <br><%= image_tag(file, class: "flex-image2", data: {target: "#myModal", toggle: "modal"}) %><br>
-    <% end %>
+  <% @event.files.each do |file| %>
+    <%= image_tag(file, class: "flex-image-L") %><br>
   <% end %>
 
   <br>
   <%= form_with model: @event, local: true do |form| %>
     <%= errors_for @event %>
     <div class="form-group">
-      <%= form.label :Upload_Files %>
+      <%= form.label :Upload_files_videos_or_images %>
       <br>
-      <%= form.file_field :files %>
-    </div>
-    <div class="form-group mt-2">
-      <%= form.submit "Upload", class: ["btn", "btn-primary"] %>
-    </div>
+      <p><%= form.file_field :files %></p>
+      <div class="form-group mt-2">
+        <%= form.submit "Upload", class: ["btn", "btn-primary"] %>
+      </div>
   <% end %>
   <br>
   <h4>Invite People:</h4>
@@ -90,7 +101,7 @@
       </div>
       <div class="form-group">
         <%= form.label :event %>
-        <%= form.collection_select(:event_id, Event.all.order(name: :asc), :id, :name, {}, {class: "form-control"})  %>
+        <%= form.collection_select(:event_id, Event.all.order(name: :asc), :id, :name, {}, {class: "form-control"}) %>
       </div>
       <div class="form-group mt-2">
         <%= form.submit "Invite", class: ["btn", "btn-primary"] %>

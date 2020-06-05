@@ -2,6 +2,11 @@
 
 <h1>Organizations</h1>
 
+<%= form_tag organizations_path, :method => "get" do %>
+  <%=text_field_tag :search, params[:search] %>
+  <%=submit_tag("Search", :name => nil) %>
+<%end %>
+
 <div class="row ml-0 mt-2 mb-3">
   <%= link_to "Add Organization", new_organization_path, class: ["btn", "btn-primary"] %>
 </div>
@@ -14,9 +19,9 @@
       Description: <%= org.description %><br>
       <aside style="float: right; padding-right: 20px">
         <% if org.flyer.attached? %>
-          <%= image_tag(org.flyer, class: "flex-image2", data: { target: "#myModal", toggle: "modal"}) %>
+          <%= image_tag(org.flyer, class: "flex-image-L", data: { target: "#myModal", toggle: "modal"}) %>
         <% else %>
-          <%= image_tag("thumbnail.svg", class: "flex-image2") %>
+          <%= image_tag("thumbnail.svg", class: "flex-image-L") %>
         <% end %>
       </aside>
     </li>

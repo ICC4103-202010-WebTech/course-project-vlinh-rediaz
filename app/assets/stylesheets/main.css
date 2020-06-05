@@ -127,22 +127,47 @@ td, th {
     font-size: 2em;
     text-align: left;
 }
+.flex-item-user{
+    display: inline;
+    background: #943B6D;
+    padding-left: 30px;
+    width: available;
+    height: auto;
+    margin-top: 5px;
+    line-height: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+    text-align: left;
+}
 
-.flex-image{
+.flex-image-S{
     padding-top: 10px;
     padding-left: 10px;
     height: 100px;
     width: 100px;
 }
-.flex-image2{
+.flex-image-L{
     padding-top: 10px;
     padding-left: 10px;
     height: 200px;
 }
-.flex-image3 {
+.flex-image-XL {
     padding-top: 10px;
     padding-left: 10px;
     height: 400px
+}
+.flex-image-XS{
+    height: 35px;
+    padding-top: 0px;
+    width: 35px;
+    vertical-align: middle;
+}
+.flex-image-XXS{
+    height: 10px;
+    padding-top: 0px;
+    width: 10px;
+    vertical-align: middle;
 }
 img {
     height: 100px;

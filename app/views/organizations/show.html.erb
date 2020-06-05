@@ -2,9 +2,9 @@
 
 <aside style="float: right; padding-right: 20px">
   <% if @organization.flyer.attached? %>
-    <%= image_tag(@organization.flyer, class: "flex-image3", data: { target: "#myModal", toggle: "modal"}) %>
+    <%= image_tag(@organization.flyer, class: "flex-image-XL", data: { target: "#myModal", toggle: "modal"}) %>
   <% else %>
-    <%= image_tag("thumbnail.svg", class: "flex-image3") %>
+    <%= image_tag("thumbnail.svg", class: "flex-image-XL") %>
   <% end %>
 </aside>
 

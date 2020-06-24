@@ -21,17 +21,47 @@
     <li><a <%= link_to "Home", root_path %></a></li>
     <li><a <%= link_to 'Events', events_path %></a></li>
     <li><a <%= link_to 'Organizations', organizations_path %></a></li>
-    <li><a <%= link_to 'Users', users_path %></a></li>
-    <li style="float: right"><a <%= link_to 'My profile', user_path(@current_user.id) %></a></li>
+    <% if user_signed_in? %>
+      <li><a <%= link_to 'Users', users_path %></a></li>
+    <% end %>
+    <% if not user_signed_in? %>
+        <li style="float: right"><%= link_to "Sign In", new_user_session_path %></li>
+        <li style="float: right"><%= link_to "Register", new_user_registration_path %></li>
+      <% else
+           if user_signed_in? %>
+          <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+        <% else
+             if admin_signed_in %>
+            <%= link_to "Log Out", destroy_admin_session_path, method: :delete %>
+          <% end %>
+        <% end %>
+      <% end %>
+
+    <span class="d-inline ml-3">
+      <!-- TODO: you must complete the navbar to include sign in and sign out links
+           for customers. For admin users, you should only provide a sign out link
+           if the admin user has signed in. If there is no user signed in, you must
+           show sign in (log in) and sign up (register) links. -->
+
+      <!-- This link is a place holder for the actual links you need to add here -->
+
+      <!-- END TODO -->
+      </span>
   </ul>
 </nav>
 
 <body>
 <div id="container">
   <aside id="customer_info">
-    <h4>Welcome <%= @current_user.full_name %>!</h4>
+    <h4>Welcome <@%= @current_user.full_name %>!</h4>
   </aside>
   <main>
+    <% if notice.present? %>
+      <%= render partial: "notice" %>
+    <% end %>
+    <% if alert.present? %>
+      <%= render partial: "alert" %>
+    <% end %>
     <%= yield %>
   </main>
 </div>

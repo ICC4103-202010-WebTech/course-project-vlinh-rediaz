@@ -1,20 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Profile</h1>
-<% if @user.flyer.attached? %>
+<% if current_user.flyer.attached? %>
   <%= image_tag(@user.flyer, class: "flex-image-L", data: {target: "#myModal", toggle: "modal"}) %>
 <% else %>
-  <%=image_tag("profile_pic.png", class: "flex-image-L")%><% end %>
+  <%= image_tag("profile_pic.png", class: "flex-image-L") %>
+<% end %>
 <h2>User Info:</h2>
-<p>Username: <%= @user.username %>
-  <br>Full Name: <%= @user.full_name %>
-  <br>Age: <%= @user.age %>
-  <br>Email: <%= @user.email %>
+<p>Username: <%= current_user.username %>
+  <br>Full Name: <%= current_user.full_name %>
+  <br>Age: <%= current_user.age %>
+  <br>Email: <%= current_user.email %>
 </p>
 
 <h5> Your invitations:</h5>
 <% @user_on_event.each do |user| %>
-  <% if user.user_id == @user.id %>
+  <% if user.user_id == current_user.id %>
     <% @event.each do |event| %>
       <% if user.event_id == event.id %>
         - <%= link_to event.name, event %><br>
@@ -25,12 +26,12 @@
 
 <h5> Events you have created:</h5>
 <% @event.each do |event| %>
-  <% if event.user_id == @user.id %>
+  <% if event.user_id == current_user.id %>
     - <%= link_to event.name, event %><br>
   <% end %>
 <% end %>
 
 <br>
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to "Destroy", @user, method: :delete%> |
+<%= link_to 'Edit', edit_user_path(current_user) %> |
+<%= link_to "Destroy", current_user, method: :delete %> |
 <%= link_to 'Back', users_path %>

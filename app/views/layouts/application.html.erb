@@ -25,17 +25,17 @@
       <li><a <%= link_to 'Users', users_path %></a></li>
     <% end %>
     <% if not user_signed_in? %>
-        <li style="float: right"><%= link_to "Sign In", new_user_session_path %></li>
-        <li style="float: right"><%= link_to "Register", new_user_registration_path %></li>
+      <li style="float: right"><%= link_to "Sign In", new_user_session_path %></li>
+      <li style="float: right"><%= link_to "Register", new_user_registration_path %></li>
+    <% else
+         if user_signed_in? %>
+        <li style="float: right"><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
       <% else
-           if user_signed_in? %>
-          <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
-        <% else
-             if admin_signed_in %>
-            <%= link_to "Log Out", destroy_admin_session_path, method: :delete %>
-          <% end %>
+           if admin_signed_in %>
+          <li style="float: right"><%= link_to "Log Out", destroy_admin_session_path, method: :delete %></li>
         <% end %>
       <% end %>
+    <% end %>
 
     <span class="d-inline ml-3">
       <!-- TODO: you must complete the navbar to include sign in and sign out links
@@ -52,8 +52,13 @@
 
 <body>
 <div id="container">
+
   <aside id="customer_info">
-    <h4>Welcome <@%= @current_user.full_name %>!</h4>
+    <% if user_signed_in? %>
+      <h4>Welcome <!%= @current_user.full_name %></h4>
+    <% else %>
+      <h4>Welcome guest</h4>
+    <% end %>
   </aside>
   <main>
     <% if notice.present? %>

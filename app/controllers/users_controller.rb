@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update, :destroy] # no se para que sirve
 
   # GET /users
   # GET /users.json
   def index
     @users = User.all
     @user_search = User.search(params[:search])
-    @current_user = current_user
   end
 
   # GET /users/1
@@ -13,18 +13,15 @@ class UsersController < ApplicationController
   def show
     @user_on_event = UserOnEvent.all
     @event = Event.all
-    @current_user = current_user
   end
 
   # GET /users/new
   def new
     @user = User.new
-    @current_user = current_user
   end
 
   # GET /users/1/edit
   def edit
-    @current_user = current_user
   end
 
   # POST /users
@@ -67,12 +64,7 @@ class UsersController < ApplicationController
     end
   end
 
-
   private
-
-  def current_user
-    @current_user = User.first
-  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_user

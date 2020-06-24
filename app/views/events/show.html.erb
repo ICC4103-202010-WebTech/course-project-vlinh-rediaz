@@ -108,7 +108,15 @@
       </div>
     <% end %>
   </div>
-  <%= link_to 'Edit', edit_event_path(@event) %> |
-  <%= link_to "Destroy", @event, method: :delete%> |
-  <%= link_to 'Back', :back %>
+  <% if user_signed_in? %> ##CAMBIAR POR ADMIN##
+    <%= link_to 'Edit', edit_event_path(@event) %> |
+    <%= link_to "Destroy", @event, method: :delete %> |
+    <%= link_to 'Back', :back %>
 
+  <% else %>
+    <% if @event.user_id == current_user.id %>
+      <%= link_to 'Edit', edit_event_path(@event) %> |
+    <% end %>
+    <%= link_to 'Edit', edit_event_path(@event) %>
+    <%= link_to 'Back', :back %>
+  <% end %>

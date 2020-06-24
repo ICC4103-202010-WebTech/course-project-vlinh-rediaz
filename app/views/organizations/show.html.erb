@@ -2,7 +2,7 @@
 
 <aside style="float: right; padding-right: 20px">
   <% if @organization.flyer.attached? %>
-    <%= image_tag(@organization.flyer, class: "flex-image-XL", data: { target: "#myModal", toggle: "modal"}) %>
+    <%= image_tag(@organization.flyer, class: "flex-image-XL", data: {target: "#myModal", toggle: "modal"}) %>
   <% else %>
     <%= image_tag("thumbnail.svg", class: "flex-image-XL") %>
   <% end %>
@@ -21,6 +21,17 @@
 <% end %>
 
 <br>
-<%= link_to 'Edit', edit_organization_path(@organization) %> |
-<%= link_to "Destroy", @organization, method: :delete%> |
-<%= link_to 'Back', organizations_path %>
+
+<% if user_signed_in? %> ##CAMBIAR POR ADMIN##
+  <%= link_to 'Edit', edit_organization_path(@organization) %> |
+  <%= link_to "Destroy", @organization, method: :delete %> |
+  <%= link_to 'Back', :back %>
+
+
+<% else %>
+  <% if @organization.user_id == current_user.id %>
+    <%= link_to 'Edit', edit_organization_path(@organization) %> |
+  <% end %>
+  <%= link_to 'Edit', edit_organization_path(@organization) %> |
+  <%= link_to 'Back', :back %>
+<% end %>

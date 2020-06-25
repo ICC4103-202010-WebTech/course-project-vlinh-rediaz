@@ -4,8 +4,8 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
-    @user_search = User.search(params[:search])
+
+    @users = User.search(params[:search])
     @current_user = current_user
   end
 

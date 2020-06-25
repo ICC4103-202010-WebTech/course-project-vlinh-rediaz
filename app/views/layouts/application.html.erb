@@ -22,14 +22,35 @@
     <li><a <%= link_to 'Events', events_path %></a></li>
     <li><a <%= link_to 'Organizations', organizations_path %></a></li>
     <li><a <%= link_to 'Users', users_path %></a></li>
-    <li style="float: right"><a <%= link_to 'My profile', user_path(@current_user.id) %></a></li>
+    <% if user_signed_in? %>
+      <li><a <%= link_to 'Users', users_path %></a></li>
+    <% end %>
+    <% if not user_signed_in? %>
+      <li style="float: right"><%= link_to "Sign In", new_user_session_path %></li>
+      <li style="float: right"><%= link_to "Register", new_user_registration_path %></li>
+    <% else
+         if user_signed_in? %>
+        <li style="float: right"><%= link_to "Log Out", destroy_user_session_path, :method => :delete %></li>
+      <% else  # NO SABEMOS POR QUE NO CIERRA LA SESION, NOS REDIRIJE AL SIGN_OUT PERO SE METE AL PERFIL DEL USUARIO LOGEADO #
+           if admin_signed_in %>
+          <li style="float: right"><%= link_to "Log Out", destroy_admin_session_path, :method => :delete %></li>
+        <% end %>
+      <% end %>
+      <% if user_signed_in? %>
+        <li style="float: right"><a <%= link_to 'My profile', user_path(current_user.id) %></a></li>
+      <% end %>
+    <% end %>
   </ul>
 </nav>
 
 <body>
 <div id="container">
   <aside id="customer_info">
-    <h4>Welcome <%= @current_user.full_name %>!</h4>
+    <% if user_signed_in? %>
+      <h4>Welcome <%= current_user.full_name %></h4>
+    <% else %>
+      <h4>Welcome guest</h4>
+    <% end %>
   </aside>
   <main>
     <p class="notice"><%= notice %></p>

@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 mailbox1 = MailBox.create(emitter: 1, receiver: 2, message: "What is your deepest desire?")
-mailbox2 = MailBox.create(emitter: 2, receiver: 1, message: "Understanding other people. What,would you say, is your strongest quality?")1
+mailbox2 = MailBox.create(emitter: 2, receiver: 1, message: "Understanding other people. What,would you say, is your strongest quality?")
 mailbox3 = MailBox.create(emitter: 1, receiver: 2, message: "My life is a crazy explosion of shapes and colors. Creativity. What about you?")
 mailbox4 = MailBox.create(emitter: 2, receiver: 1, message: "I know what I want. Confidence.")
 mailbox5 = MailBox.create(emitter: 3, receiver: 4, message: "What role do you play in your friendships?")
@@ -66,8 +66,8 @@ user7 = User.create(username: "bruno", password: "coquimbo", full_name: "Bruno C
 user8 = User.create(username: "claudio", password: "diaz", full_name: "Claudio Diaz", email: "cdiaz@gmail.com", age: 27, admin: false)
 user9 = User.create(username: "diego", password: "errores", full_name: "Diego Errores", email: "derrores@gmail.com", age: 28, admin: false)
 user10 = User.create(username: "fernanda", password: "silva", full_name: "Fernanda Silva", email: "fsilva@gmail.com", age: 29, admin: false)
-user11 = User.create(username: "calvarez", password: "123456", full_name: "Claudio Alvarez", email: "admin@admin.com", age: 0, admin: true)
-user12 = User.create(username: "fdco_schez", password: "123456", full_name: "Federico Sanchez", email: "fde@sanchez.com", age: 68, admin: flase)
+user11 = User.create(username: "calvarez", password: "admin123", full_name: "Claudio Alvarez", email: "admin@admin.com", age: 0, admin: true)
+user12 = User.create(username: "fdco_schez", password: "123456", full_name: "Federico Sanchez", email: "fde@sanchez.com", age: 68, admin: false)
 
 organization1 = Organization.create(name: "UANDES", description: "Universidad de los Andes", user_id: 1)
 organization2 = Organization.create(name: "WebTech", description: "Curso ICC 2020", user_id: 2)

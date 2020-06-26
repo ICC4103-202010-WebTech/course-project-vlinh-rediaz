@@ -19,9 +19,9 @@
     <br>
     <div class="form-group">
       <%= form.label :message %><br>
-      <%= form.select :message, ["Abusive Content", "Inappropriate Content"]%>
-
+      <%= form.select :message, [["Abusive Content", "An event has been reported for abusive content"], ["Inappropriate Content", "An event has been reported for Inappropriate content"]] %>
     </div>
+
     <%= form.hidden_field :emitter, value: current_user.id %>
     <br>
     <br>

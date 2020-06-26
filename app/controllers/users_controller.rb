@@ -57,6 +57,15 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    Comment.where(user_id: params[:id]).destroy_all
+    Event.where(user_id: params[:id]).destroy_all
+    MailBox.where(emitter: params[:id]).destroy_all
+    MailBox.where(receiver: params[:id]).destroy_all
+    CommentReply.where(user_id: params[:id]).destroy_all
+    Organization.where(user_id: params[:id]).destroy_all
+    DateVote.where(user_id: params[:id]).destroy_all
+    UserOnEvent.where(user_id: params[:id]).destroy_all
+    UserOnOrganization.where(user_id: params[:id]).destroy_all
     @user.destroy
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }

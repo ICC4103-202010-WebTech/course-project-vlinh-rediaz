@@ -179,6 +179,18 @@ td, th {
     font-size: 1.5em;
     text-align: left;
 }
+.flex-item-event2 {
+    display: inline;
+    background: #2E2F30;
+    padding: 15px;
+    width: fit-content;
+    height: auto;
+    margin-top: 5px;
+    line-height: 5px;
+    color: white;
+    text-align: left;
+    border-style: groove;
+}
 
 .flex-image-S {
     padding-top: 10px;

@@ -49,7 +49,7 @@
 
 <br>
 <% if (user_signed_in? && current_user.id == @user.id) or (user_signed_in? && current_user.admin) %> <!-- ONLY THE USER CAN EDIT OR DESTROY or an admin-->
-  <%= button_to "Destroy", current_user, {:onclick => "return confirm('Are you sure?')", :method => :delete, :remote => true} %>
+  <%= button_to "Destroy", @user, {:onclick => "return confirm('Are you sure?')", :method => :delete, :remote => true} %>
   <br>
   <%= link_to "Change password", edit_user_registration_path %> |
   <%= link_to 'Edit', edit_user_path(@user) %> |

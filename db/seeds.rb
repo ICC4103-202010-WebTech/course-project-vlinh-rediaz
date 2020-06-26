@@ -6,16 +6,55 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-mailbox1 = MailBox.create(emitter: 1, receiver: 2, message: "Hi")
-mailbox2 = MailBox.create(emitter: 1, receiver: 3, message: "How's everything going")
-mailbox3 = MailBox.create(emitter: 3, receiver: 2, message: "meet you at the party")
-mailbox4 = MailBox.create(emitter: 2, receiver: 1, message: "what's up hommie")
-mailbox5 = MailBox.create(emitter: 4, receiver: 1, message: "all good bro?")
+mailbox1 = MailBox.create(emitter: 1, receiver: 2, message: "What is your deepest desire?")
+mailbox2 = MailBox.create(emitter: 2, receiver: 1, message: "Understanding other people. What,would you say, is your strongest quality?")1
+mailbox3 = MailBox.create(emitter: 1, receiver: 2, message: "My life is a crazy explosion of shapes and colors. Creativity. What about you?")
+mailbox4 = MailBox.create(emitter: 2, receiver: 1, message: "I know what I want. Confidence.")
+mailbox5 = MailBox.create(emitter: 3, receiver: 4, message: "What role do you play in your friendships?")
+mailbox6 = MailBox.create(emitter: 4, receiver: 3, message: "I like to make my friends laugh. What about you?")
+mailbox7 = MailBox.create(emitter: 3, receiver: 4, message: "They always come to me for advice. How often do you work out?")
+mailbox8 = MailBox.create(emitter: 4, receiver: 3, message: "The people at the gym know my name. Fitness is life!")
+mailbox9 = MailBox.create(emitter: 5, receiver: 6, message: "If you were an animal, what would you be?")
+mailbox10 = MailBox.create(emitter: 6, receiver: 5, message: "A Lion. I consider my self 'The King' among others. What about you?")
+mailbox11 = MailBox.create(emitter: 5, receiver: 6, message: "Probably a sloth haha. What role do you play in your friendships?")
+mailbox12 = MailBox.create(emitter: 6, receiver: 5, message: "As I mention before, as a King, I offer support where I can.")
+mailbox13 = MailBox.create(emitter: 7, receiver: 8, message: "What do you dream about when you sleep?")
+mailbox14 = MailBox.create(emitter: 8, receiver: 7, message: "Fighting or running away from war. What about you?")
+mailbox15 = MailBox.create(emitter: 7, receiver: 8, message: "I often dream of animals. Do you have a bucket list?")
+mailbox16 = MailBox.create(emitter: 8, receiver: 7, message: "Yes. I am halfway through it already!")
+mailbox17 = MailBox.create(emitter: 9, receiver: 10, message: "What do you currently do in life?")
+mailbox18 = MailBox.create(emitter: 10, receiver: 9, message: "Full time student and rockin' it! What about you?")
+mailbox19 = MailBox.create(emitter: 9, receiver: 10, message: "I am a traveler. What bad decision did you make that actually turned out to be a good decision?")
+mailbox20 = MailBox.create(emitter: 10, receiver: 9, message: "Once I decline a job offer, later that company broke.")
+mailbox21 = MailBox.create(emitter: 11, receiver: 12, message: "What's something that when you were learning it, you thought you'd never use it, but in reality, you ended up using it a lot?")
+mailbox22 = MailBox.create(emitter: 12, receiver: 11, message: "How to cook haha. What about you?")
+mailbox23 = MailBox.create(emitter: 11, receiver: 12, message: "How to calculate an Integral hahaha. Where's the next place you want to visit?")
+mailbox24 = MailBox.create(emitter: 12, receiver: 11, message: "Good question. The CARIBE !!!")
 mailbox1.save!
 mailbox2.save!
 mailbox3.save!
 mailbox4.save!
 mailbox5.save!
+mailbox6.save!
+mailbox7.save!
+mailbox8.save!
+mailbox9.save!
+mailbox10.save!
+mailbox11.save!
+mailbox12.save!
+mailbox13.save!
+mailbox14.save!
+mailbox15.save!
+mailbox16.save!
+mailbox17.save!
+mailbox18.save!
+mailbox19.save!
+mailbox20.save!
+mailbox21.save!
+mailbox22.save!
+mailbox23.save!
+mailbox24.save!
+
 
 user1 = User.create(username: "rai", password: "rai123", full_name: "Raimundo Diaz", email: "rai@gmail.com", age: 25, admin: false)
 user2 = User.create(username: "lihn", password: "lihn123", full_name: "Vicente Lihn", email: "lihn@gmail.com", age: 21, admin: false)
@@ -28,6 +67,7 @@ user8 = User.create(username: "claudio", password: "diaz", full_name: "Claudio D
 user9 = User.create(username: "diego", password: "errores", full_name: "Diego Errores", email: "derrores@gmail.com", age: 28, admin: false)
 user10 = User.create(username: "fernanda", password: "silva", full_name: "Fernanda Silva", email: "fsilva@gmail.com", age: 29, admin: false)
 user11 = User.create(username: "calvarez", password: "123456", full_name: "Claudio Alvarez", email: "admin@admin.com", age: 0, admin: true)
+user12 = User.create(username: "fdco_schez", password: "123456", full_name: "Federico Sanchez", email: "fde@sanchez.com", age: 68, admin: flase)
 
 organization1 = Organization.create(name: "UANDES", description: "Universidad de los Andes", user_id: 1)
 organization2 = Organization.create(name: "WebTech", description: "Curso ICC 2020", user_id: 2)

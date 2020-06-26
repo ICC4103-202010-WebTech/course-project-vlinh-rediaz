@@ -31,6 +31,10 @@ Rails.application.routes.draw do
   resources :comments, defaults: {format: :html} do
     resources :comment_replies, defaults: {format: :html}
   end
+
+  resources :terms_of_service, defaults: {format: :html}
+  resources :acceptable_use_policy, defaults: {format: :html}
+
   resources :date_votes, defaults: {format: :html}
   resources :events, defaults: {format: :html}
   resources :organizations, defaults: {format: :html}
@@ -38,5 +42,6 @@ Rails.application.routes.draw do
   resources :users, defaults: {format: :html}
   resources :user_on_events, defaults: {format: :html}
   resources :user_on_organizations, defaults: {format: :html}
+
 
 end

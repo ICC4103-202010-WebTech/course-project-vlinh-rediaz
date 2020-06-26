@@ -1,11 +1,11 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:show, :index]
 
   # GET /events
   # GET /events.json
   def index
     @events = Event.search(params[:search])
-      #@current_user = current_user
   end
 
   # GET /events/1
@@ -13,7 +13,6 @@ class EventsController < ApplicationController
   def show
     @user_on_event = UserOnEvent.all
     @organization = Organization.all
-    #@current_user = current_user
     @comments = Comment.all
     @user = User.all
     @comment_replies = CommentReply
@@ -21,25 +20,22 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    #@current_user = current_user
     @event = Event.new
   end
 
   def invite
-    #@current_user = current_user
     @event = Event.new
   end
 
   # GET /events/1/edit
   def edit
-    #@current_user = current_user
   end
 
   # POST /events
   # POST /events.json
   def create
-    #@current_user = current_user
     @event = Event.new(event_params)
+    #@event.user = current_user
 
     respond_to do |format|
       if @event.save
@@ -55,7 +51,6 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
-    #@current_user = current_user
     respond_to do |format|
       if @event.update(event_params)
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
@@ -78,10 +73,6 @@ class EventsController < ApplicationController
   end
 
   private
-
-  #def current_user
-  #@current_user = User.first
-  #end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_event

@@ -1,5 +1,5 @@
 class EmailValidator < ActiveModel::EachValidator
-  def validate_each(record,attribute,value)
+  def validate_each(record, attribute, value)
     unless value =~ /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
       record.errors[attribute] << (options[:message] || "is not an email")
     end
@@ -9,12 +9,11 @@ end
 
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable, :trackable,
          :recoverable, :rememberable, :validatable
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true, email: true
-
   has_one_attached :flyer
   has_many :comments, dependent: :destroy
   has_many :comment_replies, dependent: :destroy
@@ -27,7 +26,7 @@ class User < ApplicationRecord
 
   def self.search(search)
     if search
-      user_search = User.where("username LIKE ? OR full_name LIKE ? OR email LIKE ?" , "%#{search}%", "%#{search}%", "%#{search}%")
+      user_search = User.where("username LIKE ? OR full_name LIKE ? OR email LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
     else
       user_search = User.all
     end

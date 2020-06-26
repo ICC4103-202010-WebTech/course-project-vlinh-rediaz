@@ -2,7 +2,7 @@
 
 <aside style="float: right; padding-right: 20px">
   <% if @organization.flyer.attached? %>
-    <%= image_tag(@organization.flyer, class: "flex-image-XL", data: { target: "#myModal", toggle: "modal"}) %>
+    <%= image_tag(@organization.flyer, class: "flex-image-XL", data: {target: "#myModal", toggle: "modal"}) %>
   <% else %>
     <%= image_tag("thumbnail.svg", class: "flex-image-XL") %>
   <% end %>
@@ -11,9 +11,15 @@
 <h2>Organization Info:</h2>
 <p>Name: <%= @organization.name %>
   <br>Description: <%= @organization.description %>
+  <br>Created by:
+  <% @user.each do |user| %>
+    <% if @organization.user_id == user.id %>
+      <%= link_to user.full_name, user_path %>
+    <% end %>
+  <% end %>
 </p>
 
-<h5> Organizations Events:</h5>
+<b> Organization Events:</b> <br>
 <% @event.each do |event| %>
   <% if event.organization_id == @organization.id %>
     - <%= link_to event.name, event %><br>
@@ -21,6 +27,14 @@
 <% end %>
 
 <br>
-<%= link_to 'Edit', edit_organization_path(@organization) %> |
-<%= link_to "Destroy", @organization, method: :delete%> |
-<%= link_to 'Back', organizations_path %>
+
+<% if (user_signed_in? && current_user.id == @organization.user_id) or (user_signed_in? && current_user.admin) %> <!-- ONLY THE CREATOR OF THE ORGANIZATION CAN EDIT OR DESTROY or an admin-->
+  <%= button_to "Destroy", @organization, {:onclick => "return confirm('Are you sure?')", :method => :delete, :remote => true} %>
+  <br>
+  <%= link_to 'Edit', edit_organization_path(@organization) %> |
+  <%= link_to 'Back', :back %>
+
+<% else %>
+  <%= link_to 'Back', :back %>
+
+<% end %>

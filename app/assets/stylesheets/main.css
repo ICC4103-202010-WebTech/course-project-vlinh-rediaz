@@ -71,7 +71,7 @@ footer {
     position: relative;
     background: #5E2542;
     padding: 1em;
-    height: 110px;
+    height: 120px;
     clear: both;
     bottom: 0;
 }
@@ -135,6 +135,42 @@ td, th {
     background: #943B6D;
     padding-left: 30px;
     width: available;
+    height: auto;
+    margin-top: 5px;
+    line-height: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+    text-align: left;
+}
+
+.flex-item-comment {
+    display: inline;
+    background: #2E2F30;
+    padding: 5px;
+    width: fit-content;
+    height: fit-content;
+    color: white;
+    font-weight: bold;
+    text-align: left;
+}
+
+.flex-item-reply {
+    display: inline;
+    padding: 5px;
+    background: #666666;
+    width: fit-content;
+    height: fit-content;
+    color: white;
+    font-weight: bold;
+    text-align: left;
+}
+
+.flex-item-event {
+    display: inline;
+    background: #2E2F30;
+    padding: 15px;
+    width: fit-content;
     height: auto;
     margin-top: 5px;
     line-height: 5px;
@@ -208,9 +244,10 @@ aa {
     overflow: hidden;
     transition: 0.2s;
 }
-aa:hover{
+
+aa:hover {
     color: #255784;
     background: #2196f3;
-    box-shadow: 0 0  10px #2196f3, 0 0 40px #2196f3, 0  0  80px #2196f3;
+    box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3;
     transition-delay: 0.5s;
 }

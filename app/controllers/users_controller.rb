@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :delete]
+  before_action :authenticate_user!
   # GET /users
   # GET /users.json
   def index
@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   def show
     @user_on_event = UserOnEvent.all
     @event = Event.all
+    @organization = Organization.all
   end
 
   # GET /users/new
@@ -63,9 +64,7 @@ class UsersController < ApplicationController
     end
   end
 
-
   private
-
 
   # Use callbacks to share common setup or constraints between actions.
   def set_user
@@ -74,6 +73,6 @@ class UsersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def user_params
-    params.fetch(:user, {}).permit(:username, :full_name, :email, :age, :flyer, :search)
+    params.fetch(:user, {}).permit(:username, :full_name, :email, :age, :flyer, :search, :password)
   end
 end

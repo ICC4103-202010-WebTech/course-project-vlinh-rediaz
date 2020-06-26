@@ -21,7 +21,6 @@
     <li><a <%= link_to "Home", root_path %></a></li>
     <li><a <%= link_to 'Events', events_path %></a></li>
     <li><a <%= link_to 'Organizations', organizations_path %></a></li>
-    <li><a <%= link_to 'Users', users_path %></a></li>
     <% if user_signed_in? %>
       <li><a <%= link_to 'Users', users_path %></a></li>
     <% end %>
@@ -30,10 +29,10 @@
       <li style="float: right"><%= link_to "Register", new_user_registration_path %></li>
     <% else
          if user_signed_in? %>
-        <li style="float: right"><%= link_to "Log Out", destroy_user_session_path, :method => :delete %></li>
-      <% else  # NO SABEMOS POR QUE NO CIERRA LA SESION, NOS REDIRIJE AL SIGN_OUT PERO SE METE AL PERFIL DEL USUARIO LOGEADO #
+        <li style="float: right"><%= button_to "Log Out", destroy_user_session_path, :method => :delete %></li>
+      <% else
            if admin_signed_in %>
-          <li style="float: right"><%= link_to "Log Out", destroy_admin_session_path, :method => :delete %></li>
+          <li style="float: right"><%= button_to "Log Out", destroy_admin_session_path, :method => :delete %></li>
         <% end %>
       <% end %>
       <% if user_signed_in? %>
@@ -48,6 +47,9 @@
   <aside id="customer_info">
     <% if user_signed_in? %>
       <h4>Welcome <%= current_user.full_name %></h4>
+      <% if current_user.admin %>
+        Administrator
+      <% end %>
     <% else %>
       <h4>Welcome guest</h4>
     <% end %>
@@ -61,8 +63,10 @@
 </body>
 
 <footer>
-  <h4>Contact Information</h4>
-  <p>Address: Camino la villa 616 --phone: +56974492070 --mail: RVevents@webtech.gg</p>
-  <p><a href="https://youtu.be/dQw4w9WgXcQ">For more information click here</a></p>
+  Contact Information
+  <p><%= link_to "Terms of Service", terms_of_service_index_path %>
+    | <%= link_to "Acceptable Use Policy", acceptable_use_policy_index_path %></p>
+  Address: Camino la villa 616 --phone: +56974492070 --mail: RVevents@webtech.gg ### we know the frontend doesn't have very good looks, but we focused in the backend and implementations<br>
+  <a href="https://youtu.be/dQw4w9WgXcQ">For more information click here</a>
 </footer>
 </html>

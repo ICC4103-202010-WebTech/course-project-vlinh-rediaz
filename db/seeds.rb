@@ -6,6 +6,17 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+mailbox1 = MailBox.create(emitter: 1, receiver: 2, message: "Hi")
+mailbox2 = MailBox.create(emitter: 1, receiver: 3, message: "How's everything going")
+mailbox3 = MailBox.create(emitter: 3, receiver: 2, message: "meet you at the party")
+mailbox4 = MailBox.create(emitter: 2, receiver: 1, message: "what's up hommie")
+mailbox5 = MailBox.create(emitter: 4, receiver: 1, message: "all good bro?")
+mailbox1.save!
+mailbox2.save!
+mailbox3.save!
+mailbox4.save!
+mailbox5.save!
+
 user1 = User.create(username: "rai", password: "rai123", full_name: "Raimundo Diaz", email: "rai@gmail.com", age: 25, admin: false)
 user2 = User.create(username: "lihn", password: "lihn123", full_name: "Vicente Lihn", email: "lihn@gmail.com", age: 21, admin: false)
 user3 = User.create(username: "pepe", password: "peps123", full_name: "Pedro Picapiedra", email: "peps@gmail.com", age: 15, admin: false)
@@ -141,3 +152,5 @@ reply11 = CommentReply.create(message: "hahaha in your dreams", comment_id: comm
 reply12 = CommentReply.create(message: "you dreamer haha its already mine", comment_id: comment18, user_id: user9.id)
 reply13 = CommentReply.create(message: "aaaa chiiileeeee mom im fine", comment_id: comment19, user_id: user10.id)
 reply14 = CommentReply.create(message: "im so fast im gonna catch you", comment_id: comment17, user_id: user5.id)
+
+

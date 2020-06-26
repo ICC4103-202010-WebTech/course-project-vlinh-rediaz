@@ -125,6 +125,13 @@
     </div>
   <% end %>
   <br>
+
+  <% if user_signed_in? %>
+    <%= button_to 'Report Event', edit_mail_box_path, method: :get %>
+<% end %><br>
+
+
+  <br>
   <% if (user_signed_in? && current_user.id == @event.user_id) or (user_signed_in? && current_user.admin) %> <!-- ONLY THE CREATOR OF THE EVENT CAN EDIT OR DESTROY or an admin-->
     <%= button_to "Destroy", @event, {:onclick => "return confirm('Are you sure?')", :method => :delete, :remote => true} %>
     <br>

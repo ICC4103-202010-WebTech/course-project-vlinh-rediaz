@@ -1,18 +1,19 @@
 <h1>Events</h1>
 
 <%= form_tag events_path, :method => "get" do %>
-  <%=text_field_tag :search, params[:search] %>
-  <%=submit_tag("Search", :name => nil) %>
-<%end %>
-
-<div class="aa">
-  <br>
-  <button type="button-primary" ><%= link_to "Add Event", new_event_path %></button>
-</div>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag("Search", :name => nil) %>
+<% end %>
+<% if user_signed_in? %>
+  <div class="aa">
+    <br>
+    <button type="button-primary"><%= link_to "Add Event", new_event_path %></button>
+  </div>
+<% end %>
 
 <div class="flex-container">
   <% @events.each do |event| %>
-    <%= render partial: 'event_tile', locals: { event: event } %>
+    <%= render partial: 'event_tile', locals: {event: event} %>
   <% end %>
 </div>
 

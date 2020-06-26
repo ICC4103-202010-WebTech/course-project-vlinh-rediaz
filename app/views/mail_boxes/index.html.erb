@@ -1,0 +1,37 @@
+<div class="aa">
+  <br>
+  <button type="button-primary"><%= link_to 'New message', new_mail_box_path %></button>
+</div>
+<table>
+  <thead>
+  <tr>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <h1>Received Messages</h1>
+  <% @mail_boxes.each do |mail| %>
+    <% if mail.receiver == current_user.id %>
+      <% @user.each do |user| %>
+        <% if user.id == mail.emitter %>
+          <p>From: <%= user.full_name %>:
+            <%= mail.message %></p>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<br>
+  <h1>Sent Messages</h1>
+  <% @mail_boxes.each do |mail| %>
+    <% if mail.emitter == current_user.id %>
+      <% @user.each do |user| %>
+        <% if user.id == mail.receiver %>
+          <p>To: <%= user.full_name %>: <%= mail.message %></p>
+        <% end %>
+      <% end %>
+
+    <% end %>
+  <% end %>
+  </tbody>
+</table>

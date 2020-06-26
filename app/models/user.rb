@@ -23,6 +23,8 @@ class User < ApplicationRecord
   has_many :user_on_events, dependent: :destroy
   has_many :organizations, through: :user_on_organizations
   has_many :events, through: :user_on_events
+  has_many :mail_box
+
 
   def self.search(search)
     if search

@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       resources :users do
         resources :user_on_organizations
         resources :user_on_events
+        resources :mail_boxes
         resources :comments do
           resources :comment_replies
         end
@@ -42,6 +43,8 @@ Rails.application.routes.draw do
   resources :users, defaults: {format: :html}
   resources :user_on_events, defaults: {format: :html}
   resources :user_on_organizations, defaults: {format: :html}
+  resources :mail_boxes, defaults: {format: :html}
 
+  resources :reports, defaults: {format: :html}
 
 end

@@ -37,6 +37,7 @@
       <% end %>
       <% if user_signed_in? %>
         <li style="float: right"><a <%= link_to 'My profile', user_path(current_user.id) %></a></li>
+        <li style="float: right"><a <%= link_to 'MailBox', mail_boxes_path %></a></li>
       <% end %>
     <% end %>
   </ul>
@@ -66,7 +67,8 @@
   Contact Information
   <p><%= link_to "Terms of Service", terms_of_service_index_path %>
     | <%= link_to "Acceptable Use Policy", acceptable_use_policy_index_path %></p>
-  Address: Camino la villa 616 --phone: +56974492070 --mail: RVevents@webtech.gg ### we know the frontend doesn't have very good looks, but we focused in the backend and implementations<br>
+  Address: Camino la villa 616 --phone: +56974492070 --mail: RVevents@webtech.gg ### we know the frontend doesn't have
+  very good looks, but we focused in the backend and implementations<br>
   <a href="https://youtu.be/dQw4w9WgXcQ">For more information click here</a>
 </footer>
 </html>

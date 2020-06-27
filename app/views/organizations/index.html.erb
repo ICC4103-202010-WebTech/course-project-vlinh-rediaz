@@ -1,16 +1,14 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Organizations</h1>
 
 <%= form_tag organizations_path, :method => "get" do %>
-  <%= text_field_tag :search, params[:search] %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search..." %>
   <%= submit_tag("Search", :name => nil) %>
 <% end %>
 
 <% if user_signed_in? %>
-    <div class="aa">
-      <br>
-      <button type="button-primary"><%= link_to "Add Organization", new_organization_path %></button>
+  <div class="aa">
+    <br>
+    <button type="button-primary"><%= link_to "Add Organization", new_organization_path %></button>
   </div>
 <% end %>
 

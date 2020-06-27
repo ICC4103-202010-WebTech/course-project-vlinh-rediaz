@@ -3,5 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>R&V Events</title>
+  <h1>Upcoming Events!</h1>
+  <div class="flex-container">
+    <% @events.each do |event| %>
+      <%= render partial: 'events/event_tile', locals: { event: event } %>
+    <% end %>
+  </div>
 </head>
 </html>

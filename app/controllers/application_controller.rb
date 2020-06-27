@@ -3,8 +3,18 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  def current_user
-    @current_user = User.first
+  def CurrentUser
+    if current_u
+      current_u
+    elsif current_admin
+      current_admin
+    else
+      User.new
+    end
+  end
+
+  def set_user
+    @user = User
   end
 
   def configure_permitted_parameters

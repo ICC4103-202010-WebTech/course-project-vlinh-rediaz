@@ -3,7 +3,6 @@
 + Raimundo Enrique Diaz Parada
 + Vicente Lihn Gorroño
 ```
-## First of all, make sure you download our "Branch: test" file, not the "Branch: master".
 ---
 ## We want to make emphasis that we take more care about the back-end than the front-end. But anyways it's far better from before.
 - ADM: It's available to perform CRUD operations on Organzations, Events and Events comments. ✔✔

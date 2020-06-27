@@ -14,7 +14,7 @@
      - Organization Admin:
           - rai@gmail.com / password: rai123
      - Normal User:
-          - luisg@gmail.com / password: gonzalezz
+          - luisg@gmail.com / password: gonzalez
 ---
 ## We want to make emphasis that we took more care about the back-end than the front-end. But anyways it's far better from before.
 - ADM: It's available to perform CRUD operations on Organzations, Users, Events and Events comments. ✔✔

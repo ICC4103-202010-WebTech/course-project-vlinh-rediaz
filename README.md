@@ -27,7 +27,7 @@
       And viewing videos and files attach, it's only possible to upload 1. ✔❌
 - SER: As you suggest us via mail post assignment 3, we centralize the search bar. And it has all their functionalities working. ✔✔
 - ARA: Everything working. ✔✔
-- UAD: A new user link works properly but, a new user i created instead of an admin. ✔❌
+- UAD: A new user link works properly but, a new user is created instead of an admin. ✔❌
 - AUP: Everything working. ✔✔
 - MBX: Everything working. ✔✔
 - BONUS: Complete, fully functional. ✔✔

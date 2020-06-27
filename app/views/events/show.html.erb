@@ -57,7 +57,7 @@
       <%= comment.user.username %>:
       <%= comment.message %>
     </div>
-    <% if user_signed_in? && current_user.id == comment.user.id %>
+    <% if (user_signed_in? && current_user.id == @event.user_id) or (user_signed_in? && current_user.admin) %>
       <%= link_to 'Edit/Delete', edit_comment_path(comment) %>
     <% end %>
     <% @event.comment_replies.each do |reply| %>

@@ -45,7 +45,7 @@ Rails.application.routes.draw do
   resources :user_on_organizations, defaults: {format: :html}
   resources :mail_boxes, defaults: {format: :html}
   resources :admins, defaults: {format: :html}
-
+  resources :searches
 
   resources :reports, defaults: {format: :html}
 

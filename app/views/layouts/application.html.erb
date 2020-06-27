@@ -24,6 +24,7 @@
     <% if user_signed_in? %>
       <li><a <%= link_to 'Users', users_path %></a></li>
     <% end %>
+    <li><a <%= link_to 'Search', new_search_path %></a></li>
     <% if not user_signed_in? %>
       <li style="float: right"><%= link_to "Sign In", new_user_session_path %></li>
       <li style="float: right"><%= link_to "Register", new_user_registration_path %></li>
@@ -48,7 +49,7 @@
   <aside id="customer_info">
     <% if user_signed_in? %>
       <h4>Welcome <%= current_user.full_name %></h4>
-      <% if current_user.admin == 1%>
+      <% if current_user.admin == 1 %>
         Administrator
       <% end %>
     <% else %>

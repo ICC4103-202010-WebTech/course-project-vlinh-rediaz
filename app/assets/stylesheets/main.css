@@ -192,6 +192,21 @@ td, th {
     border-style: groove;
 }
 
+.flex-item-event3 {
+    display: inline;
+    background: #2E2F30;
+
+    padding: 15px;
+    width: fit-content;
+    height: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    line-height: 5px;
+    color: white;
+    text-align: left;
+    border-style: groove;
+}
+
 .flex-image-S {
     padding-top: 10px;
     padding-left: 10px;

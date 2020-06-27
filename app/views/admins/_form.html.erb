@@ -16,7 +16,10 @@
 <div class="row ml-0">
   <%= form_with model: user, local: true do |form| %>
     <%= errors_for user %>
-    <% form.hidden_field :admin, value: true %>
+    <div class="form-group">
+      <%= form.label :Administrator %><br/>
+      <%= form.check_box :admin, class: "form-control" %>
+    </div>
     <div class="form-group">
       <%= form.label :username %><br/>
       <%= form.text_field :username, class: "form-control" %>
@@ -38,7 +41,7 @@
     </div>
 
     <div class="form-group">
-      <%= form.label :password_confirmation %><br />
+      <%= form.label :password_confirmation %><br/>
       <%= form.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
     </div>
     <div class="form-group">
@@ -48,7 +51,7 @@
     <div class="form-group">
       <% form.label :Image %>
       <br>
-      <% form.file_field :flyer%>
+      <% form.file_field :flyer %>
     </div>
     <div class="form-group mt-2">
       <br>

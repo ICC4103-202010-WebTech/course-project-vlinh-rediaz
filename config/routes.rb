@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root "pages#home"
 
@@ -44,6 +44,8 @@ Rails.application.routes.draw do
   resources :user_on_events, defaults: {format: :html}
   resources :user_on_organizations, defaults: {format: :html}
   resources :mail_boxes, defaults: {format: :html}
+  resources :admins, defaults: {format: :html}
+
 
   resources :reports, defaults: {format: :html}
 

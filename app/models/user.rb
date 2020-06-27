@@ -6,13 +6,12 @@ class EmailValidator < ActiveModel::EachValidator
   end
 end
 
-
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :trackable,
-         :recoverable, :rememberable, :validatable
-  validates :username, presence: true, uniqueness: true
+         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:google_oauth2]
+  validates :username, presence: false, uniqueness: true
   validates :email, presence: true, uniqueness: true, email: true
   has_one_attached :flyer, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -25,6 +24,19 @@ class User < ApplicationRecord
   has_many :events, dependent: :destroy, through: :user_on_events
   has_many :mail_box
 
+  def self.from_omniauth(access_token)
+    data = access_token.info
+    user = User.where(email: data['email']).first
+
+    # Uncomment the section below if you want users to be created if they don't exist
+    unless user
+      user = User.create(full_name: data['name'],
+                         email: data['email'],
+                         password: Devise.friendly_token[0, 20]
+      )
+    end
+    user
+  end
 
   def self.search(search)
     if search

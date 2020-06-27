@@ -1,6 +1,5 @@
-class UsersController < ApplicationController
+class AdminsController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy, :delete]
-  before_action :authenticate_user!
   # GET /users
   # GET /users.json
   def index
@@ -82,7 +81,7 @@ class UsersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def user_params
-    params.fetch(:user, {}).permit(:username, :full_name, :email, :age, :flyer, :search, :password, :admin)
+    params.fetch(:user, {}).permit(:username, :admin, :full_name, :email, :age, :flyer, :search, :password)
   end
 end
 

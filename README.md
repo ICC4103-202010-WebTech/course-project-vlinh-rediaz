@@ -4,14 +4,14 @@
 + Vicente Lihn Gorroño
 ```
 ## Dont't forget to make: 
-- rake db:setup
+- rake db:setup so the seed loads
 ---
 ## Also:
 - Remember that all the users are in seed file, so you can test the organization administrator priviledges.
 - Examples:
      - General Admin:
           - admin@admin.com / password: admin123
-     - Organization Admin:
+     - Organization Admin (of UANDES):
           - rai@gmail.com / password: rai123
      - Normal User:
           - luisg@gmail.com / password: gonzalez

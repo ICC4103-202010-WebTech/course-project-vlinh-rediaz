@@ -76,14 +76,15 @@ organization4 = Organization.create(name: "Marketing", description: "Company to 
 organization5 = Organization.create(name: "Kino", description: "Empresa chilena dedicada a los juegos de azar", user_id: 5)
 organization6 = Organization.create(name: "UFC", description: "Ultimate Fighting Championship", user_id: 6)
 
-event1 = Event.create(name: "BBQ", description: "BBQ after quarantine", location: "camino la villa", creation_date: 2020 - 5 - 10, starting_event_date: 2020 - 11 - 11, event_privacy: 1, user_id: user1.id)
-event2 = Event.create(name: "party", description: "gotta get crazy after quarantine", location: "everywhere", creation_date: 2020 - 4 - 9, starting_event_date: 2020 - 8 - 8, event_privacy: 0, user_id: user2.id)
-event3 = Event.create(name: "piano concert", description: "for the man of culture", location: "sydney opera house", creation_date: 2020 - 1 - 1, starting_event_date: 2021 - 3 - 12, event_privacy: 0, user_id: user3.id)
-event4 = Event.create(name: "ultra miami", description: "Ultra Music Festival is an annual outdoor electronic music festival that takes place during march in Miami,Florida, USA.", location: "Miami beach", creation_date: 2020 - 05 - 11, starting_event_date: 2021 - 03 - 03, event_privacy: 0, user_id: user4.id)
-event5 = Event.create(name: "lolapalusa", description: "brigido", location: "chile", creation_date: 2020 - 12 - 1, starting_event_date: 2021 - 11 - 11, event_privacy: 1, user_id: user1.id)
-event6 = Event.create(name: "UFC 251", description: "próximo evento de artes marciales mixtas", location: "usa", creation_date: 2020 - 4 - 12, starting_event_date: 2021 - 6 - 6, event_privacy: 0, user_id: user5.id)
-event7 = Event.create(name: "Sorteo Cuarentena", description: "Sorteo de 12 millones", location: "chile", creation_date: 2020 - 2 - 2, starting_event_date: 2021 - 5 - 5, event_privacy: 0, user_id: user6.id)
-
+event1 = Event.create(name: "BBQ", description: "BBQ after quarantine", location: "camino la villa", creation_date: "2020-05-10", starting_event_date: "2020-11-11", event_privacy: 1, user_id: user1.id)
+event2 = Event.create(name: "party", description: "gotta get crazy after quarantine", location: "everywhere", creation_date: "2020-04-09", starting_event_date: "2020-08-08", event_privacy: 0, user_id: user2.id)
+event3 = Event.create(name: "piano concert", description: "for the man of culture", location: "sydney opera house", creation_date: "2020-01-01", starting_event_date: "2021-03-12", event_privacy: 0, user_id: user3.id)
+event4 = Event.create(name: "ultra miami", description: "Ultra Music Festival is an annual outdoor electronic music festival that takes place during march in Miami,Florida, USA.", location: "Miami beach", creation_date: "2020-05-11", starting_event_date: "2021-03-03", event_privacy: 0, user_id: user4.id)
+event5 = Event.create(name: "lolapalusa", description: "brigido", location: "chile", creation_date: "2020-12-1", starting_event_date: "2021-11-11", event_privacy: 1, user_id: user1.id)
+event6 = Event.create(name: "UFC 251", description: "próximo evento de artes marciales mixtas", location: "usa", creation_date: "2020-04-12", starting_event_date: "2021-06-06", event_privacy: 0, user_id: user5.id)
+event7 = Event.create(name: "Sorteo Cuarentena", description: "Sorteo de 12 millones", location: "chile", creation_date: "2020-02-02", starting_event_date: "2021-05-05", event_privacy: 0, user_id: user6.id)
+event8 = Event.create(name: "Valorant Championship", description: "torneo anual de Valorant organizado por Riot Games y hosteado por el Kino", location: "online", creation_date: "2020-05-10", starting_event_date: "2020-06-08", event_privacy: 0, user_id: user7.id)
+event9 = Event.create(name: "League of Legends Championship", description: "torneo anual de League of Legends organizado por Riot Games y hosteado por el kino", location: "online", creation_date: "2020-03-07", starting_event_date: "2021-04-11", event_privacy: 0, user_id: user9.id)
 
 organization1.events << event1
 organization2.events << event2
@@ -92,6 +93,10 @@ organization2.events << event4
 organization1.events << event5
 organization6.events << event6
 organization5.events << event7
+organization4.events << event8
+organization4.events << event9
+event9.save!
+
 
 useronorg1 = UserOnOrganization.create(user_role: 0, user_id: user1.id, organization: organization1)
 useronorg2 = UserOnOrganization.create(user_role: 1, user_id: user1.id, organization: organization2)

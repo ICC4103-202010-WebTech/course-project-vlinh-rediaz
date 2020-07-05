@@ -1,13 +1,31 @@
 <li class="flex-item">
-  Name: <%= link_to event.name, event %><br>
-  Description: <%= event.description %><br>
-  Address: <%= event.location %><br>
-  Date: <%= event.starting_event_date %>
-  <aside style="float: right; padding-right: 20px">
+  <aside style="float: right; padding-right: 20px; display: inline; padding-top: 40px">
     <% if event.flyer.attached? %>
-      <%= link_to image_tag(event.flyer, class: "flex-image-L"), event %>
-    <% else %>
+    <% elsif event.id == 1 %>
+      <%= link_to image_tag("1.jpg", class: "flex-image-L"), event %>
+    <% elsif event.id == 2 %>
+      <%= link_to image_tag("2.jpg", class: "flex-image-L"), event %>
+    <% elsif event.id == 3 %>
+      <%= link_to image_tag("3.jpg", class: "flex-image-L"), event %>
+    <% elsif event.id == 4 %>
+      <%= link_to image_tag("4.jpg", class: "flex-image-L"), event %>
+    <% elsif event.id == 5 %>
+      <%= link_to image_tag("5.jpg", class: "flex-image-L"), event %>
+    <% elsif event.id == 6 %>
+      <%= link_to image_tag("6.jpg", class: "flex-image-L"), event %>
+    <% elsif event.id == 7 %>
+      <%= link_to image_tag("7.jpg", class: "flex-image-L"), event %>
+    <% elsif event.id == 8 %>
+      <%= link_to image_tag("8.jpg", class: "flex-image-L"), event %>
+    <% elsif event.id == 9 %>
+      <%= link_to image_tag("9.jpg", class: "flex-image-L"), event %>
+  <% else %>
       <%= link_to image_tag("thumbnail.svg", class: "flex-image-L"), event %>
     <% end %>
   </aside>
+  <p>Name: <%= link_to event.name, event %><br>
+    Description: <%= event.description %><br>
+    Address: <%= event.location %><br>
+    Date: <%= event.starting_event_date %></p>
+
 </li>

@@ -15,21 +15,22 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
-    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Saira Semi Condensed", sans-serif;
 }
 
 a {
-    color: #2196f3;
+    color: #66cdfc;
     text-decoration: none;
 }
 
 a:hover {
-    color: #255784;
+    color: #00ffed;
 }
 
 header {
     background: url(https://www.exitfest.org/wp-content/uploads/2018/03/01_Silent-Disco.jpg);
-    background-size: contain;
+    background-size: cover;
+    background-position-y: -150px;
     padding: 2em;
     height: 80px;
 }
@@ -54,7 +55,7 @@ div#container {
 aside#customer_info {
     width: 10%;
     color: white;
-    background-color: #24292D;
+    background-color: #005864;
     padding: 1em;
 }
 
@@ -62,18 +63,26 @@ main {
     width: 90%;
     overflow: auto;
     color: white;
-    background: #a2a2a2;
+    background-color: #1F2833;
     padding: 1em;
 }
 
 footer {
     color: white;
     position: relative;
-    background: #5E2542;
+    background: #0B0C10;
     padding: 1em;
     height: 120px;
     clear: both;
     bottom: 0;
+}
+
+.button {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
 
 ul#navbar {
@@ -81,7 +90,7 @@ ul#navbar {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #5E2542;
+    background-color: #0B0C10;
 }
 
 
@@ -99,7 +108,8 @@ ul#navbar li a {
 
 /* Change the link color to #111 (black) on hover */
 ul#navbar li a:hover {
-    background-color: #943B6D;
+    background-color: #1F2833;
+    color: #00ffed;
 }
 
 td, th {
@@ -118,7 +128,7 @@ td, th {
 
 .flex-item {
     display: inline;
-    background: #943B6D;
+    background: #45A29E;
     padding-left: 30px;
     width: available;
     height: auto;
@@ -132,7 +142,7 @@ td, th {
 
 .flex-item-user {
     display: inline;
-    background: #943B6D;
+    background: #45A29E;
     padding-left: 30px;
     width: available;
     height: auto;
@@ -247,6 +257,7 @@ img {
 li {
     display: inline;
 }
+
 
 neon-button {
     margin: 0;

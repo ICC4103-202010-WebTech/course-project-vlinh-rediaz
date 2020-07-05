@@ -21,6 +21,18 @@
       <aside style="float: right; padding-right: 20px">
         <% if org.flyer.attached? %>
           <%= image_tag(org.flyer, class: "flex-image-L", data: {target: "#myModal", toggle: "modal"}) %>
+        <% elsif org.id == 1 %>
+          <%= image_tag("o1.jpg", class: "flex-image-L") %>
+        <% elsif org.id == 2 %>
+          <%= image_tag("o2.jpg", class: "flex-image-L") %>
+        <% elsif org.id == 3 %>
+          <%= image_tag("o3.jpg", class: "flex-image-L") %>
+        <% elsif org.id == 4 %>
+          <%= image_tag("o4.jpg", class: "flex-image-L") %>
+        <% elsif org.id == 5 %>
+          <%= image_tag("o5.png", class: "flex-image-L") %>
+        <% elsif org.id == 6 %>
+          <%= image_tag("o6.jpg", class: "flex-image-L") %>
         <% else %>
           <%= image_tag("thumbnail.svg", class: "flex-image-L") %>
         <% end %>

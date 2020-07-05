@@ -2,9 +2,26 @@
 
 <aside style="float: right; padding-right: 20px">
   <% if @event.flyer.attached? %>
-    <%= image_tag(@event.flyer, class: "flex-image-XL", data: {target: "#myModal", toggle: "modal"}) %>
+  <% elsif @event.id == 1 %>
+    <%= image_tag("1.jpg", class: "flex-image-XL") %>
+  <% elsif @event.id == 2 %>
+    <%= image_tag("2.jpg", class: "flex-image-XL") %>
+  <% elsif @event.id == 3 %>
+    <%= image_tag("3.jpg", class: "flex-image-XL") %>
+  <% elsif @event.id == 4 %>
+    <%= image_tag("4.jpg", class: "flex-image-XL") %>
+  <% elsif @event.id == 5 %>
+    <%= image_tag("5.jpg", class: "flex-image-XL") %>
+  <% elsif @event.id == 6 %>
+    <%= image_tag("6.jpg", class: "flex-image-XL") %>
+  <% elsif @event.id == 7 %>
+    <%= image_tag("7.jpg", class: "flex-image-XL") %>
+  <% elsif @event.id == 8 %>
+    <%= image_tag("8.jpg", class: "flex-image-XL") %>
+  <% elsif @event.id == 9 %>
+    <%= image_tag("9.jpg", class: "flex-image-XL") %>
   <% else %>
-    <%= image_tag("thumbnail.svg", class: "flex-image-XL") %>
+    <%= image_tag("thumbnail.svg", class: "flex-image-L")%>
   <% end %>
 </aside>
 
